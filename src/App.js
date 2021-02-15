@@ -26,7 +26,22 @@ const useStyles = (theme) => ({
 });
 
 class App extends React.Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
   render() {
     const { classes } = this.props;
     return(
@@ -35,9 +50,9 @@ class App extends React.Component {
       <Container maxWidth="sm">
         <div className={classes.root}>
           <img src={logo} className="App-logo" alt="logo" />
-          <form className={classes.form} noValidate autoComplete="false">
-            <TextField id="name" label="Name" fullWidth/>
-            <Button variant="contained" color="primary" className={classes.button} endIcon={<Icon>send</Icon>} >Send</Button>
+          <form className={classes.form} onSubmit={this.handleSubmit}>
+            <TextField type="text" id="name" label="Name" fullWidth value={this.state.value} onChange={this.handleChange} />
+            <Button type="submit" variant="contained" color="primary" className={classes.button} endIcon={<Icon>send</Icon>} >Send</Button>
           </form>
         </div>
       </Container>
