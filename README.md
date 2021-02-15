@@ -1,4 +1,4 @@
-Personal project for fun and learn in python. All the progress can refer to http://yowchat.herokuapp.com/
+Personal project for fun and learn in python and javascript(React). All the progress can refer to http://yowchat.herokuapp.com/
 
 # Getting Started with Create React App
 
